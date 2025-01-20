@@ -1,0 +1,55 @@
+// --------------------------------------------------------------------------------------------------------------------
+// <copyright company="Aspose Pty Ltd" file="StyleChangeInfo.cls">
+//  Copyright (c) 2003-2024 Aspose Pty Ltd
+// </copyright>
+// <summary>
+//  Permission is hereby granted, free of charge, to any person obtaining a copy
+//  of this software and associated documentation files (the "Software"), to deal
+//  in the Software without restriction, including without limitation the rights
+//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//  copies of the Software, and to permit persons to whom the Software is
+//  furnished to do so, subject to the following conditions:
+// 
+//  The above copyright notice and this permission notice shall be included in all
+//  copies or substantial portions of the Software.
+// 
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+//  SOFTWARE.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+/**
+ * StyleChangeInfo Object fields.
+ */
+public with sharing class StyleChangeInfo {
+    /**
+     * Name of the changed style.
+     */
+    public String ChangedProperty { get; set; }
+
+    /**
+     * Value of the changed style from the source document.
+     */
+    public String OldValue { get; set; }
+
+    /**
+     * Value of the changed style from the target document.
+     */
+    public String NewValue { get; set; }
+
+    /**
+     * Get a string representation of the object.
+     * @return String representation of the object.
+     */
+    public override String toString() {
+        return 'class StyleChangeInfo {\n' +
+               '  ChangedProperty: ' + this.ChangedProperty + '\n' +
+               '  OldValue: ' + this.OldValue + '\n' +
+               '  NewValue: ' + this.NewValue + '\n' +
+               '}\n';
+    }
+}
