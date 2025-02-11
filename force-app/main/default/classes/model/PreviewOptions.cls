@@ -1,5 +1,5 @@
 // --------------------------------------------------------------------------------------------------------------------
-// <copyright company="Aspose Pty Ltd" file="CopyFolderRequest.cls">
+// <copyright company="Aspose Pty Ltd" file="PreviewOptions.cls">
 //  Copyright (c) Aspose Pty Ltd
 // </copyright>
 // <summary>
@@ -22,52 +22,63 @@
 //  SOFTWARE.
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
-
-/**
- * Request model for {@link FolderApi#copyFolder} operation.
+/** 
+ * Defines preview options.
  */
-public class CopyFolderRequest  
-{
-    /**
-     * Initializes a new instance of the CopyFolderRequest class.
+public with sharing virtual class PreviewOptions {
+
+    /** 
+     * Enum for Format.
      */
-    public CopyFolderRequest()
-    {
+    public enum FormatEnum {
+        Jpeg,
+        Png,
+        Bmp
     }
 
-    /**
-     * Initializes a new instance of the CopyFolderRequest class.
+    /** 
+     * Preview image format.
+     */
+    public FormatEnum Format;
+
+    /** 
+     * Input file info.
+     */
+    public FileInfo FileInfo;
+
+    /** 
+     * Path to folder with preview results.
+     */
+    public String OutputFolder;
+
+    /** 
+     * Preview width.
+     */
+    public Integer Width;
+
+    /** 
+     * Preview height.
+     */
+    public Integer Height;
+
+    /** 
+     * Page numbers that will be previewed.
+     */
+    public List<Integer> PageNumbers;
+
+    /** 
+     * Returns the string representation of the object.
      * 
-     * @param srcPath Source folder path e.g. '/src'
-     * @param destPath Destination folder path e.g. '/dst'
-     * @param srcStorageName Source storage name
-     * @param destStorageName Destination storage name
+     * @return String presentation of the object.
      */
-    public CopyFolderRequest(String srcPath, String destPath, String srcStorageName, String destStorageName)             
-    {
-        this.srcPath = srcPath;
-        this.destPath = destPath;
-        this.srcStorageName = srcStorageName;
-        this.destStorageName = destStorageName;
+    public override virtual String toString() {
+        return 'class PreviewOptions {\n' +
+               '  FileInfo: ' + this.FileInfo + '\n' +
+               '  Format: ' + this.Format + '\n' +
+               '  OutputFolder: ' + this.OutputFolder + '\n' +
+               '  Width: ' + this.Width + '\n' +
+               '  Height: ' + this.Height + '\n' +
+               '  PageNumbers: ' + this.PageNumbers + '\n' +
+               '}\n';
     }
-    
-    /**
-     * Source folder path e.g. '/src'
-     */
-    public String srcPath { get; set; }
-    
-    /**
-     * Destination folder path e.g. '/dst'
-     */
-    public String destPath { get; set; }
-    
-    /**
-     * Source storage name
-     */
-    public String srcStorageName { get; set; }
-    
-    /**
-     * Destination storage name
-     */
-    public String destStorageName { get; set; }
 }

@@ -1,5 +1,5 @@
 // --------------------------------------------------------------------------------------------------------------------
-// <copyright company="Aspose Pty Ltd" file="CopyFolderRequest.cls">
+// <copyright company="Aspose Pty Ltd" file="PreviewRequest.cls">
 //  Copyright (c) Aspose Pty Ltd
 // </copyright>
 // <summary>
@@ -24,50 +24,29 @@
 // --------------------------------------------------------------------------------------------------------------------
 
 /**
- * Request model for {@link FolderApi#copyFolder} operation.
+ * Request model for {@link PreviewApi#preview} operation.
  */
-public class CopyFolderRequest  
+public class PreviewRequest  
 {
     /**
-     * Initializes a new instance of the CopyFolderRequest class.
+     * Initializes a new instance of the PreviewRequest class.
      */
-    public CopyFolderRequest()
+    public PreviewRequest()
     {
     }
 
     /**
-     * Initializes a new instance of the CopyFolderRequest class.
+     * Initializes a new instance of the PreviewRequest class.
      * 
-     * @param srcPath Source folder path e.g. '/src'
-     * @param destPath Destination folder path e.g. '/dst'
-     * @param srcStorageName Source storage name
-     * @param destStorageName Destination storage name
+     * @param previewOptions Preview options
      */
-    public CopyFolderRequest(String srcPath, String destPath, String srcStorageName, String destStorageName)             
+    public PreviewRequest(PreviewOptions previewOptions)             
     {
-        this.srcPath = srcPath;
-        this.destPath = destPath;
-        this.srcStorageName = srcStorageName;
-        this.destStorageName = destStorageName;
+        this.previewOptions = previewOptions;
     }
-    
+
     /**
-     * Source folder path e.g. '/src'
+     * Preview options
      */
-    public String srcPath { get; set; }
-    
-    /**
-     * Destination folder path e.g. '/dst'
-     */
-    public String destPath { get; set; }
-    
-    /**
-     * Source storage name
-     */
-    public String srcStorageName { get; set; }
-    
-    /**
-     * Destination storage name
-     */
-    public String destStorageName { get; set; }
+    public PreviewOptions previewOptions { get; set; }
 }

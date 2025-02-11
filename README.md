@@ -8,7 +8,7 @@ The complete source code is available in this repository folder, you can either 
 
 + Register at [Dashboard](https://dashboard.groupdocs.cloud) and obtain your API Keys on the Applications tab;
 + Check out this repository and perform login into your Salesforce organization, using SFDX (sfdx auth:web:login -r https://login.salesforce.com);
-+ Push classes into org using command: "sfdx force:source:push";
++ Push classes into org using command: "sf project deploy start";
 + Upload necessary content files using Salesforce dashboard at "Files" page;
 + Add GroupDocs Cloud API enpoint at "Remote Site Settings" page, when adding new site, set "Remote Site URL" field to "https://api.groupdocs.cloud";
 + Write a code that uses GroupDocs.Comparison Cloud SDK, see example below, and execute in the developer console or use in your custom classes;

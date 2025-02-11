@@ -1,5 +1,5 @@
 // --------------------------------------------------------------------------------------------------------------------
-// <copyright company="Aspose Pty Ltd" file="ReviewApi.cls">
+// <copyright company="Aspose Pty Ltd" file="PreviewApi.cls">
 //  Copyright (c) Aspose Pty Ltd
 // </copyright>
 // <summary>
@@ -22,35 +22,39 @@
 //  SOFTWARE.
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
+
 /**
  * GroupDocs.Comparison.Cloud.Sdk API.
  */
-public class ReviewApi {
+public class PreviewApi {
     
     private ApiInvoker apiInvoker;
     private Configuration configuration;
 
     /**
-     * Initializes a new instance of the ReviewApi class.
+     * Initializes a new instance of the PreviewApi class.
      * 
      * @param appSid Application identifier (App SID)
      * @param appKey Application private key (App Key)
      */
-    public ReviewApi(String appSid, String appKey) {
+    public PreviewApi(String appSid, String appKey) {
         this.configuration = new Configuration(appSid, appKey);
         initialize();
     }
 
     /**
-     * Initializes a new instance of the ReviewApi class.
+     * Initializes a new instance of the PreviewApi class.
      * 
      * @param configuration Configuration settings
      */
-    public ReviewApi(Configuration configuration) {
+    public PreviewApi(Configuration configuration) {
         this.configuration = configuration;
         initialize();
     }
 
+    /**
+     * Initializes request handlers and the API invoker
+     */
     private void initialize() {
         List<IRequestHandler> requestHandlers = new List<IRequestHandler>();
         requestHandlers.add(new AuthRequestHandler(this.configuration));
@@ -60,43 +64,25 @@ public class ReviewApi {
     }
 
     /**
-     * Accepts or rejects revisions in DOCX document.
+     * Creates a preview images of document pages and returns an array of links to saved result.
      * 
-     * @param request Request. {@link ApplyRevisionsRequest}
-     * @return {@link Link}
+     * @param request Request. {@link PreviewRequest}
+     * @return {@link List<Link>}
      */
-    public Link applyRevisions(ApplyRevisionsRequest request) {
-        if (request.revisionOptions == null) {
-            throw new ApiException(400, 'Missing required parameter \'revisionOptions\' when calling applyRevisions');
+    public List<Link> preview(PreviewRequest request) {
+        // verify the required parameter 'previewOptions' is set
+        if (request.previewOptions == null) {
+            throw new ApiException(400, 'Missing required parameter \'previewOptions\' when calling preview');
         }
-        String resourcePath = this.configuration.getServerUrl() + '/comparison/revisions';
-        resourcePath = resourcePath.replaceAll('\\*', '').replaceAll('&amp;', '&').replaceAll('/\\?', '?');
-        String postBody = SerializationHelper.serialize(request.revisionOptions);
-        String response = this.apiInvoker.invokeApi(resourcePath, 'PUT', postBody, null, null, null);
 
-        if (response != null) {
-            return (Link)SerializationHelper.deserialize(response, Link.class);
-        }
-        return null;
-    }
-
-    /**
-     * Get list of DOCX document revisions.
-     * 
-     * @param request Request. {@link GetRevisionsRequest}
-     * @return {@link List<RevisionInfo>}
-     */
-    public List<RevisionInfo> getRevisions(GetRevisionsRequest request) {
-        if (request.fileInfo == null) {
-            throw new ApiException(400, 'Missing required parameter \'fileInfo\' when calling getRevisions');
-        }
-        String resourcePath = this.configuration.getServerUrl() + '/comparison/revisions';
+        // create path and map variables
+        String resourcePath = this.configuration.getServerUrl() + '/comparison/preview';
         resourcePath = resourcePath.replaceAll('\\*', '').replaceAll('&amp;', '&').replaceAll('/\\?', '?');
-        String postBody = SerializationHelper.serialize(request.fileInfo);
+        String postBody = SerializationHelper.serialize(request.previewOptions);
         String response = this.apiInvoker.invokeApi(resourcePath, 'POST', postBody, null, null, null);
 
         if (response != null) {
-            return (List<RevisionInfo>)SerializationHelper.deserialize(response, List<RevisionInfo>.class);
+            return (List<Link>)SerializationHelper.deserialize(response, List<Link>.class);
         }
         return null;
     }
